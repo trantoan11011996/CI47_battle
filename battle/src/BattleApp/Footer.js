@@ -29,14 +29,6 @@ export default function Footer() {
                     </div>
                 </Col>
 
-                <Col md={3}>
-                    <h4>Nội dung và thông tin</h4>
-                    <hr />
-                    <div className="">
-                        <p>Nội dung và thông tin các trang đánh được tham khảo và trích dẫn từ nhiều nguồn khác nhau</p>
-                    </div>
-                </Col>
-
                 <Col sm={12} md={2}>
                     <h4>Liên hệ</h4>
                     <hr />
@@ -45,6 +37,15 @@ export default function Footer() {
                         <div> <img className="icon" src={facebooklogo} alt={"facebook logo"} /> Facebook </div>
                     </div>
                 </Col>
+                
+                <Col md={3}>
+                    <h4>Nội dung và thông tin</h4>
+                    <hr />
+                    <div className="">
+                        <p>Nội dung và thông tin các trang đánh được tham khảo và trích dẫn từ nhiều nguồn khác nhau</p>
+                    </div>
+                </Col>
+
             </Row>
         </Card>
     )
