@@ -1,0 +1,29 @@
+
+.register{
+    background-image: url('https://images.baodantoc.vn/uploads/2021/Th%C3%A1ng%205/Ng%C3%A0y%204/Dien%20Bien%20Phu/299299.jpg');
+    background-size: cover;
+    background-repeat: no-repeat;
+}
+
+.register-form{
+    background-image: url('https://previews.123rf.com/images/luzitanija/luzitanija1609/luzitanija160900728/63185943-vietnam-map-on-a-old-vintage-crack-paper-background.jpg');
+    background-size: cover;
+    background-repeat: no-repeat;
+}
+.label-form{
+    color: white;
+    font-weight: 550px;
+    font-size: 20px;
+}
+.form-header,.footer-form{
+    color: white;
+}
+.btn-register-home{
+    border: none;
+    top: 20px;
+    left: -300px;
+    position: relative;
+    z-index: 2000000;
+    background-color: #caa253;
+    color: black;
+}

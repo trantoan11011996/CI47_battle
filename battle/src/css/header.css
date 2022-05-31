@@ -1,0 +1,13 @@
+.padding_navbar{
+    padding : 10px 60px;
+}
+.navbar-header{
+    background-color: #FDFAE3;
+    box-shadow: 0 0 3px;
+}
+@media (max-width : 767px){
+    .padding_navbar{
+        padding :10px 0px;
+    }
+  
+}
