@@ -1,5 +1,5 @@
 import React, { useEffect, useState } from "react";
-import { Container, Row, Col, Form, Carousel,Button } from "react-bootstrap";
+import { Container, Row, Col, Form, Carousel, Button } from "react-bootstrap";
 import { useParams, Link } from "react-router-dom";
 import { getAgebyId, getBattlebyId } from "../data/dataDetail";
 
@@ -49,20 +49,20 @@ export default function DetailHistory() {
                 <Row className="text-center"> <h3> Các bên tham chiến</h3></Row>
 
                 <Row>
-                    <Row className="nation text-center">
-                        <Col className="leader p-3 m-3" >
-                            <b>{detailNation.nation[0].name}</b><br></br>
-                            <b> Lực Lượng </b>
+                    <Row className="nation">
+                        <Col className="leader p-3 m-3 border border-dark" >
+                            <Row><b>{detailNation.nation[0].name}</b></Row>
+                            <Row className="text-start mt-3"><b>Lực Lượng</b> </Row>
                             <p>{detailNation.nation[0].force}</p>
-                            <b> Thương vong</b>
+                            <Row className="text-start mt-3"><b> Thương vong</b></Row>
                             <p>{detailNation.nation[0].lost}</p>
                         </Col>
 
-                        <Col className="leader p-3 m-3">
+                        <Col className="leader p-3 m-3 border border-dark">
                             <b> {detailNation.nation[1].name}</b><br></br>
-                            <b> Lực Lượng </b>
+                            <Row className="text-start mt-3"><b> Lực Lượng </b></Row>
                             <p>{detailNation.nation[1].force}</p>
-                            <b> Thương vong</b>
+                            <Row className="text-start mt-3"><b> Thương vong</b></Row>
                             <p>{detailNation.nation[1].lost}</p>
                             <ul>
                                 {detailNation.nation[1].detail_about_name.map((item) => <li>{item}</li>)}
@@ -78,21 +78,27 @@ export default function DetailHistory() {
                 <Row className="text-center" > <h3> Chỉ huy và Lãnh đạo</h3> </Row>
 
                 <Row>
-                    <Row className="nation-leader text-center">
-                        <Col className="leader p-3 m-3">
-                            {detailNation.nation[0].leader.map((item) => {
-                                return (
-                                    <p>{item}</p>
-                                )
-                            })}
+                    <Row className="nation-leader">
+                        <Col className="leader p-3 m-3 border border-dark">
+                            <Row><b>{detailNation.nation[0].name}</b></Row>
+                            <Row className="lead mt-3">
+                                {detailNation.nation[0].leader.map((item) => {
+                                    return (
+                                        <p> {item}</p>
+                                    )
+                                })}
+                            </Row>
                         </Col>
 
-                        <Col className="leader m-3 p-3">
-                            {detailNation.nation[1].leader.map((item) => {
-                                return (
-                                    <p>{item}</p>
-                                )
-                            })}
+                        <Col className="leader m-3 p-3 border border-dark">
+                            <Row><b> {detailNation.nation[1].name}</b></Row>
+                            <Row className="lead mt-3">
+                                {detailNation.nation[1].leader.map((item) => {
+                                    return (
+                                        <p>{item}</p>
+                                    )
+                                })}
+                            </Row>
                         </Col>
                     </Row>
                 </Row>
@@ -114,7 +120,7 @@ export default function DetailHistory() {
                                         alt="ảnh gì đấy"
                                     />
                                     <Carousel.Caption className="text-dark">
-                                        <h3> {i.name} ({i.start} - {i.end}) </h3>
+                                        <h3>  {i.name} ( { i.start && <p>{i.start}</p>} { i.end && <p>- {i.end}</p>}) </h3>
                                         <p> {i.content} </p>
                                     </Carousel.Caption>
                                 </Carousel.Item>
