@@ -5,7 +5,7 @@ import { AuthContext, login } from "./user";
 import "../css/login.css"
 import { useNavigate,Link } from "react-router-dom";
 
-export default function Login() {
+export default function Login({setUser}) {
 
     const [email, setEmail] = useState('');
     const [emailError, setEmailError] = useState('');
@@ -29,6 +29,7 @@ export default function Login() {
                 console.log('thành công')
                 navigate("/")
                 auth.setCurrentUser(user)
+                // setUser(user)
             }
         }
     }
