@@ -1,29 +1,59 @@
-import React, { useEffect, useState } from "react";
+<<<<<<< HEAD
+import React, { useContext, useEffect, useState } from "react";
+=======
+>>>>>>> fdb6482d7e4ee7635270f329aa671a91f7e94b5a
 import { Container, Row, Col, Form, Carousel, Button } from "react-bootstrap";
 import { useParams, Link } from "react-router-dom";
 import { getAgebyId, getBattlebyId } from "../data/dataDetail";
 
 
 import "../css/detail.css"
-import { AuthContext } from "../data/dataDetail";
+import { AuthContext } from "./user";
+import { Alert } from "bootstrap";
+import Login from "./login";
+import LoginDetail from "./loginDetail";
+import { Create, getComment, getCommentByid } from "./comment";
 
 
 
 export default function DetailHistory() {
     const { ageId, battleId } = useParams()
     const [battle, setBattle] = useState({})
-    const [battleDev, setBattleDev] = useState([])
-    const [battleNation, setBattleNation] = useState([])
+    const [longinModal, setLoginModal] = useState(false)
+    const [comment, setComment] = useState('')
+    const [comments,setComments] = useState(getCommentByid(ageId,battleId))
+    const auth = useContext(AuthContext)
 
 
+    const handleSubmitComment = (event) => {
+        event.preventDefault()
+        if (!auth.currentUser) {
+            return
+        }
+        if (!comment) {
+            alert('nhập comment')
+            return
+        }
+        Create(auth.currentUser.email, ageId, battleId, comment) 
+        const newComment =[...getCommentByid(ageId,battleId)]
+        setComments(newComment)
+        setComment('')
+    }
+    console.log(comments)
     useEffect(() => {
         const detail = getBattlebyId(ageId, battleId)
         setBattle(detail)
     }, [ageId, battleId])
     const detailDevelopment = getBattlebyId(ageId, battleId)
     const detailNation = getBattlebyId(ageId, battleId)
-    console.log(battle)
 
+    const showLoginModal = () => {
+        setLoginModal(true)
+    }
+
+    // const createComment = (event)=>{
+    //     Create(auth.currentUser.email,)
+    // }
     return (
         <Container className="history-container border item-detail">
             <Container>
@@ -147,24 +177,40 @@ export default function DetailHistory() {
                     <Col className="text-center m-4 "><h3>___________________________</h3></Col>
                 </Row>
                 <Row className="text-center"><h2> Cảm nhận của bạn</h2> </Row>
-
-                <Form className="replt m-3">
-                    <Row>
-                        <Col sm={3} md={3}></Col>
-                        <Col sm={5} md={5}>
-                            <Form.Control as="textarea" placeholder="Góp ý ở đây nè" style={{ height: '170px', width: '500px' }} />
-                        </Col>
-                        <Col sm={4} md={4}></Col>
-                    </Row>
-                    <Row>
-                        <Col sm={3} md={3}></Col>
-                        <Col sm={5} md={5}></Col>
-                        <Col sm={4} md={4}>
-                            <Button variant="primary"> Send</Button>
-                        </Col>
-                    </Row>
-                </Form>
-
+                <div className="comment-container">
+                    {comments==[] ? <div></div> : (
+                        <>
+                        {comments.map((item)=>{
+                            return (
+                                <Form className="comment">
+                                <p>{item.email}</p>
+                                <p>{item.content}</p>
+                                </Form>
+                            )
+                        })}
+                        </>
+                    )}
+                    {/* {comments.length=1 ? (<div>{comments[0].email}</div>) : (<div>
+                        
+                    </div>)} */}
+                </div>
+                {auth.currentUser == null ? (<div>
+                    <Form.Control placeholder="Log in to comment"></Form.Control>
+                    <Button className="btn-login" onClick={showLoginModal}>Đăng nhập</Button>
+                </div>) : (
+                    <Form className="replt m-3 form-comment" onSubmit={handleSubmitComment}>
+                        <Row className="container-comment">
+                            <Col sm={12} md={9}>
+                            <Form.Control type="text" value={comment} placeholder="Bình luận" onChange={(event) => setComment(event.target.value)} />
+                            </Col>
+                            <Col sm={4} md={3}>
+                            <Button type="submit" variant="primary"> Send</Button>
+                            </Col>
+                        </Row>
+                    </Form>)}
+                {longinModal && (
+                    <LoginDetail />
+                )}
             </Container>
         </Container>
     )

@@ -1,9 +1,10 @@
+
 const dataHistory = [
     {
         id: 1,
         age: 'thời kì Bắc Thuộc',
         desc: "",
-        img: 'http://dummyimage.com/300x300.png/5fa2dd/ffffff',
+        img: "http://dummyimage.com/300x300.png/5fa2dd/ffffff",
         battles: [
             {
                 idBattles: 1,

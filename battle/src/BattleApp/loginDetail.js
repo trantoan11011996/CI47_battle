@@ -5,7 +5,7 @@ import { AuthContext, login } from "./user";
 import "../css/login.css"
 import { useNavigate,Link } from "react-router-dom";
 
-export default function Login({setUser}) {
+export default function LoginDetail({setUser}) {
 
     const [email, setEmail] = useState('');
     const [emailError, setEmailError] = useState('');
@@ -26,7 +26,8 @@ export default function Login({setUser}) {
             if (!user) {
                 setEmailError('Email hoặc mật khẩu không chính xác');
             } else {
-                navigate("/")
+                console.log('thành công')
+                setShow(false)
                 auth.setCurrentUser(user)
                 // setUser(user)
             }
