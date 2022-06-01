@@ -20,6 +20,7 @@ export default function ContainerApp() {
 
     const [currentUser,setCurrentUser]  = useState(null)
     const [users, setUsers] = useState(getUsers())
+
     useEffect(()=>{
         const theUser = autoLogin()
         setCurrentUser(theUser)
@@ -33,9 +34,9 @@ export default function ContainerApp() {
             <Container fluid>
                 <Routes>
                     <Route path="/ages/:ageId/battles/:battleId" element={<DetailHistory/>}></Route>
-                    <Route path="/" element = { <HomePage />}></Route>
+                    <Route path="/" element = { <HomePage/>}></Route>
                     <Route path="/register" element = {<Register/>}></Route>
-                    <Route path="/login" element = {<Login/>}></Route>
+                    <Route path="/login" element = {<Login />}></Route>
                     <Route path="*" element={<h2 className="text-danger">không tìm thấy kết quả</h2>}></Route>
                 </Routes>
             </Container>
