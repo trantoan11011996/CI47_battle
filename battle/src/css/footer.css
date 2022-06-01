@@ -1,6 +1,7 @@
 .footer_container {
     background-color: #FDFAE3;
     padding: 20px 72px;
+    gap: 10px;
 }
 
 .footer_container h3{
@@ -15,7 +16,6 @@
 .contact {
     display: flex;
     flex-direction: row;
-    justify-content: center;
     gap: 10px;
 }
 
