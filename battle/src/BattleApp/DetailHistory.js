@@ -1,7 +1,5 @@
-<<<<<<< HEAD
+
 import React, { useContext, useEffect, useState } from "react";
-=======
->>>>>>> fdb6482d7e4ee7635270f329aa671a91f7e94b5a
 import { Container, Row, Col, Form, Carousel, Button } from "react-bootstrap";
 import { useParams, Link } from "react-router-dom";
 import { getAgebyId, getBattlebyId } from "../data/dataDetail";
