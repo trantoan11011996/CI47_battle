@@ -1,5 +1,6 @@
 .item-detail{
-    margin-top: 40px;
+    margin-top: 61px;
+    background-color: rgb(253,250,227);
 }
 .btn-login{
     margin-top: 10px;
@@ -30,4 +31,39 @@
 }
 .reponse-btn{
     width: fit-content;
+}
+.img-dev{
+    filter: blur(2px);
+    border-radius: 10px;
+}
+.content-dev{
+  background-color: rgb(0,0,0); 
+  background-color: rgba(0,0,0, 0.4); 
+  border: 1px solid #f1f1f1;
+  width: 80%;
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  z-index: 2;
+  width: 80%;
+  padding: 20px;
+  overflow-y: auto;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  flex-direction: column;
+  border-radius: 10px;
+}
+.content h3{
+    font-size: 2vw;
+}
+.header-dev{
+    text-align: center;
+}
+.desc-dev{
+    display: inline-block;
+    height: 50%;
+    overflow-y: scroll;
+    width:70%;
 }

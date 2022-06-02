@@ -10,7 +10,7 @@ const dataHistory = [
                 name: "Khởi nghĩa Hai Bà Trưng",
                 start: " Ngày 4/9/39",
                 end: "Tháng 2/40",
-                img_1: "https://i.postimg.cc/QxvPcbm8/cuoc-khoi-nghia-hai-ba-trung-3.jpg",
+                img_age: "https://i.postimg.cc/QxvPcbm8/cuoc-khoi-nghia-hai-ba-trung-3.jpg",
                 img_2: "",
                 nation: [
                     {
@@ -55,7 +55,7 @@ const dataHistory = [
                 name: "Khởi nghĩa Lý Bí",
                 start: "Năm 545",
                 end: "Năm 550",
-                img_1: "https://i.postimg.cc/nzR6ZVZT/Khoi-nghia-li-bi-1.jpg",
+                img_age: "https://i.postimg.cc/nzR6ZVZT/Khoi-nghia-li-bi-1.jpg",
                 img_2: "",
                 nation: [
                     {
@@ -102,7 +102,7 @@ const dataHistory = [
                 name: "TRẬN BẠCH ĐẰNG 938",
                 start: "Năm 937",
                 end: "Năm 938",
-                img_1: "https://i.postimg.cc/RFY4dL3M/anh-nen-1288.jpg",
+                img_age: "https://i.postimg.cc/RFY4dL3M/anh-nen-1288.jpg",
                 img_2: "",
                 nation: [
                     {
