@@ -88,9 +88,6 @@ export default function DetailHistory() {
                             <p>{detailNation.nation[1].force}</p>
                             <Row className="text-start mt-3"><b> Thương vong</b></Row>
                             <p>{detailNation.nation[1].lost}</p>
-                            <ul>
-                                {detailNation.nation[1].detail_about_name.map((item) => <li>{item}</li>)}
-                            </ul>
                         </Col>
                     </Row>
                 </Row>
@@ -143,7 +140,7 @@ export default function DetailHistory() {
                                         src={i.img_dev} 
                                     />
                                     <Carousel.Caption className="text-light content-dev">
-                                        <h3 className="header-dev">  {i.name}  ( { i.start } - { i.end }) </h3>
+                                        <h3 className="header-dev">  {i.name} ( { i.start && <p>{i.start}</p>} { i.end && <p>- {i.end}</p>}) </h3>
                                         <p className="desc-dev"> {i.content} </p>
                                     </Carousel.Caption>
                                 </Carousel.Item>
@@ -175,9 +172,9 @@ export default function DetailHistory() {
                         <>
                         {comments.map((item)=>{
                             return (
-                                <Form className="comment">
-                                <p>{item.email}</p>
-                                <p>{item.content}</p>
+                                <Form className="comment bg-white m-1 p-3">
+                                <p>{item.email}:</p>
+                                <p>- {item.content}</p>
                                 </Form>
                             )
                         })}
@@ -194,10 +191,10 @@ export default function DetailHistory() {
                     <Form className="replt m-3 form-comment" onSubmit={handleSubmitComment}>
                         <Row className="container-comment">
                             <Col sm={12} md={9}>
-                            <Form.Control type="text" value={comment} placeholder="Bình luận" onChange={(event) => setComment(event.target.value)} />
+                            <Form.Control className="mb-3" type="text" value={comment} placeholder="Bình luận" onChange={(event) => setComment(event.target.value)} />
                             </Col>
                             <Col sm={4} md={3}>
-                            <Button type="submit" variant="primary"> Send</Button>
+                            <Button className="mb-3" type="submit" variant="primary"> Send</Button>
                             </Col>
                         </Row>
                     </Form>)}

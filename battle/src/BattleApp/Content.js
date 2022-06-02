@@ -1,7 +1,7 @@
 import React, { useEffect, useState } from "react";
 import { Container, Row, Col, NavItem, ListGroup, ListGroupItem, NavDropdown, Form, FormControl, Button } from "react-bootstrap";
 import "../css/content.css"
-import { getAllDataHistory, getDataAge } from "../data/dataDetail";
+import { filterBattleByName, getAllDataHistory, getDataAge } from "../data/dataDetail";
 import ContentItem from "./ContentItem";
 import ContentSidebar from "./ContentSidebar";
 import Slider from "./Slider";
@@ -28,6 +28,9 @@ export default function Content({ image, content, imgItem, name }) {
     const setAll = () => {
         setCurrentAge(null)
     }
+    
+    const [keyword, setKeyWord] = useState('');
+    const result = keyword ? filterBattleByName(keyword) : agesList;
 
     return (
         <Container fluid className="container-content">

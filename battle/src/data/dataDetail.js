@@ -702,3 +702,7 @@ export function getBattlebyId(idAge, idBattles) {
     const battle = detail.battles.find(item => item.idBattles == idBattles)
     return battle
 }
+
+export function filterBattleByName(keyword) {
+    return dataHistory.filter((item) => item.name.toLowerCase().indexOf(keyword.toLowerCase()) > -1)
+  }
