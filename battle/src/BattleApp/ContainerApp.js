@@ -34,7 +34,7 @@ export default function ContainerApp() {
     return (
         <AuthContext.Provider value={{currentUser,setCurrentUser,users,setUsers}}>
         <BrowserRouter>
-            <Header />
+            <Header/>
             <Container fluid>
                 <Routes>
                     <Route path="/ages/:ageId/battles/:battleId" element={<DetailHistory/>}></Route>
