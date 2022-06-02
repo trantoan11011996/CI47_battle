@@ -13,18 +13,22 @@ import Login from "./login";
 import Header from "./Header";
 import Footer from "./Footer";
 import { AuthContext, autoLogin, generateInitUser, getUsers } from "./user";
+import { generateCommentUser,getComment } from "./comment";
 
 
 generateInitUser()
+generateCommentUser()
 export default function ContainerApp() {
 
     const [currentUser,setCurrentUser]  = useState(null)
     const [users, setUsers] = useState(getUsers())
+    const [comments,setComments] = useState(getComment())
 
     useEffect(()=>{
         const theUser = autoLogin()
         setCurrentUser(theUser)
     },[])
+    console.log(currentUser)
 
     
     return (
