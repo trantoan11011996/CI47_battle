@@ -7,8 +7,7 @@ import { NavLink } from 'react-router-dom';
 import { AuthContext } from "./user";
 import { RemoveUser } from "./user";
 
-export default function Header({curentUser}) {
-    console.log(curentUser)
+export default function Header() {
     const activeClassName = ({ isActive }) => isActive ? "nav-link text-primary" : "nav-link";
     const auth = useContext(AuthContext)
 
