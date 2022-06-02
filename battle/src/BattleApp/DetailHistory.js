@@ -1,3 +1,13 @@
+import "../css/detail.css"
+import { AuthContext } from "./user";
+import { Alert } from "bootstrap";
+import Login from "./login";
+import LoginDetail from "./loginDetail";
+import { Create, getComment, getCommentByid } from "./comment";
+import React, { useContext, useEffect, useState } from "react";
+import { Container, Row, Col, Form, Carousel, Button } from "react-bootstrap";
+import { useParams, Link } from "react-router-dom";
+import { getAgebyId, getBattlebyId } from "../data/dataDetail";
 
 export default function DetailHistory() {
     const { ageId, battleId } = useParams()

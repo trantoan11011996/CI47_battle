@@ -42,6 +42,9 @@ const dataHistory = [
                         end: "cuối năm 40",
                         content: " Sau một thời gian chuẩn bị, tháng 2 năm 40, Trưng Trắc cùng Trưng Nhị chính thức phát động khởi nghĩa chống lại nhà Đông Hán. Quân Hai Bà trước tiên tấn công đô úy trị quận Giao Chỉ ở Mê Linh. Chiếm được nơi đây, Hai Bà Trưng tiến đánh huyện Tây Vu, chiếm thành Cổ Loa. Trên đà thắng lợi, từ Cổ Loa, Hai Bà Trưng mang quân vượt sông Hoàng, sông Đuống đánh trị sở Giao Chỉ ở Luy Lâu bên bờ sông Dâu (lãng Lũng Khê, Thuận Thành, Bắc Ninh). Quân khởi nghĩa tấn công quá nhanh khiến Tô Định không kịp trở tay. Trước thế mạnh của quân Hai Bà, các viên quan cầm đầu không trở tay kịp và không dám chống cự, bỏ chạy về phương Bắc. Thái thú Giao Chỉ là Tô Định hoảng hốt cũng tháo chạy. Để thoát thân, Tô Định phải cạo tóc, cạo râu, trà trộn vào loạn quân, vứt bỏ ấn tín mà chạy. Tương truyền người Việt đương thời vẫn có tục lệ phổ biến là cạo tóc, nên Tô Định làm như vậy để bắt chước cho khỏi bị phát hiện trên đường trốn. Cuối cùng Tô Định thoát về quận Nam Hải, bị Mã Viện dâng sớ lên Hán Quang Vũ Đế hạch tội “thấy tiền thì giương mắt lên, thấy giặc thì cụp mắt xuống”. Vua Hán hạ ngục trị tội Tô Định. Cuộc khởi nghĩa Hai Bà Trưng được nhân dân khắp nơi hưởng ứng rất nhiều. Sau khi Luy Lâu bị hạ, các thành khác nhanh chóng tan vỡ và quy phục. Cuộc khởi nghĩa lan rộng vào Cửu Chân, Nhật Nam, sang Uất Lâm, Hợp Phố… Khởi nghĩa thắng lợi, Trưng Trắc lên ngôi vua, xưng vương. Thần phả cho biết Trưng Nhị được phong làm Phó vương.",
 
+
+
+
                     }
                 ],
                 result: "Khởi nghĩa thắng lợi, Trưng Trắc lên ngôi vua, xưng vương. Thần phả cho biết Trưng Nhị được phong làm Phó vương.",
@@ -674,12 +677,15 @@ const dataHistory = [
     }
 ]
 
+
 export default dataHistory
+
 
 
 export function getAllDataHistory() {
     return dataHistory
 }
+
 
 export function getDataAge() {
     for (let item of dataHistory) {
@@ -696,4 +702,3 @@ export function getBattlebyId(idAge, idBattles) {
     const battle = detail.battles.find(item => item.idBattles == idBattles)
     return battle
 }
-
