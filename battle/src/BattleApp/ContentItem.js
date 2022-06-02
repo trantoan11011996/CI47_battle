@@ -5,7 +5,6 @@ import '../css/content.css'
 import dataDetails from "../data/dataDetail";
 
 export default function ContentItem({ id, name, idAge,img }) {
-    console.log(id)
     return (
         <Col md={3} sm={6} className="list-item">
             <Link to={"/ages/" + idAge + "/battles/" + id} className='link-detail'>

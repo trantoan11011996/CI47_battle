@@ -2,6 +2,12 @@
 /* .container-content{
     background-color: #FFF5A5;
 } */
+.container-history{
+    text-align: center;
+}
+.container-history >h1{
+    color: #C83D32;
+}
 .container-item{
     height: 600px;
     overflow-y: scroll;
