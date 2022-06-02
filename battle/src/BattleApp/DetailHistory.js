@@ -1,13 +1,14 @@
+
+import React, { useContext, useEffect, useState } from "react";
+import { Container, Row, Col, Form, Carousel, Button } from "react-bootstrap";
+import { useParams, Link } from "react-router-dom";
+import { getAgebyId, getBattlebyId } from "../data/dataDetail";
 import "../css/detail.css"
 import { AuthContext } from "./user";
 import { Alert } from "bootstrap";
 import Login from "./login";
 import LoginDetail from "./loginDetail";
-import { Create, getComment, getCommentByid } from "./comment";
-import React, { useContext, useEffect, useState } from "react";
-import { Container, Row, Col, Form, Carousel, Button } from "react-bootstrap";
-import { useParams, Link } from "react-router-dom";
-import { getAgebyId, getBattlebyId } from "../data/dataDetail";
+import { Create, getComment, getCommentByid } from "./comment";;
 
 export default function DetailHistory() {
     const { ageId, battleId } = useParams()
@@ -48,15 +49,15 @@ export default function DetailHistory() {
     //     Create(auth.currentUser.email,)
     // }
     return (
-        <Container className="history-container border item-detail">
+        <Container className="history-container item-detail">
             <Container>
-                <Container className="item-detail">
+                <Container >
                     <Row className="text-center"><h3> Tên trận đánh: {battle.name}</h3></Row>
                     <Row className="text-center">
                         <h1>Ngày bắt đầu : {battle.start} - Ngày kết thúc : {battle.end}</h1>
                     </Row>
                     <Row>
-                        <Col className="text-center"> hình ảnh 1 {battle.img_1}</Col>
+                        <Col className="text-center img-battle"><img src={battle.img_age}></img></Col>
                     </Row>
 
                     <Row className="text-center"><h3> Mô tả: </h3> </Row>
@@ -138,13 +139,12 @@ export default function DetailHistory() {
                             return (
                                 <Carousel.Item key={i.id}>
                                     <img
-                                        className="d-block w-100"
-                                        src="https://scr.vn/wp-content/uploads/2020/07/Minimalist-PP-Background.jpg"
-                                        alt="ảnh gì đấy"
+                                        className="img-dev d-block w-100"
+                                        src={i.img_dev} 
                                     />
-                                    <Carousel.Caption className="text-dark">
-                                        <h3>  {i.name} ( { i.start && <p>{i.start}</p>} { i.end && <p>- {i.end}</p>}) </h3>
-                                        <p> {i.content} </p>
+                                    <Carousel.Caption className="text-light content-dev">
+                                        <h3 className="header-dev">  {i.name}  ( { i.start } - { i.end }) </h3>
+                                        <p className="desc-dev"> {i.content} </p>
                                     </Carousel.Caption>
                                 </Carousel.Item>
                             )

@@ -8,16 +8,16 @@
 }
 .content-item{
     padding-bottom: 50px;
+    background-color: rgb(253,250,227);
 }
-.sidebar{
-    margin-top: 40px;
-    border : 1px solid red;
+.battle-content{
+    margin-top:100px;
 }
-
 .item-sidebar{
     list-style: none;
     text-align: left;
     cursor: pointer;
+    background-color: rgb(253,250,227);
 }
 .sidebar-header{
     text-align: left;
@@ -26,7 +26,6 @@
 }
 .activeItem {
     transform: translateX(5px);
-    border: 1px solid black;
     background-color: #DDDDDD;
 }
 .item-img:hover {
@@ -106,14 +105,14 @@
     display: flex;
     justify-content: center;
     align-items: center;
+    margin-bottom: 20px;
 }
 .img {
     width: 100%;
     height: auto;
-    border-radius: 50%;
+    border-radius: 10px;
 }
 .item{
-    border: 1px solid #ccc;
     box-shadow: 0 0 2px;
     padding-top: 20px;
     padding-bottom: 20px;
@@ -123,17 +122,8 @@
     justify-content: center;
     align-items: center;
 }
-.content-item{
-    margin-top: 100px;
-}
 .col-sidebar{
     height: fit-content;
-}
-
-@media (max-width : 575px){
-    .list-sidebar{
-        display: none;
-    }
 }
 .btn-detail{
     width: 50%;
@@ -153,4 +143,29 @@
 .link-detail{
     text-decoration: none;
     color: black;
+}
+.item{
+    border: none;
+}
+@media (max-width : 575px){
+    .list-sidebar{
+        display: none;
+    }
+}
+
+@media (max-width : 912px) and (min-width : 820px){
+    .list-item{
+        width: 50%;
+    }
+    .list-age{
+        width: 50%;
+    }
+}
+.img-banner{
+    text-align: center;
+    width: 100%;
+}
+.img-banner img{
+    width: 50%;
+    border-radius: 10px;
 }
