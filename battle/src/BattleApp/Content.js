@@ -2,12 +2,13 @@ import React, { useEffect } from "react";
 import { useState } from "react";
 import { Container, Row, Col, NavItem, ListGroup, ListGroupItem, NavDropdown, Form, FormControl, Button } from "react-bootstrap";
 import "../css/content.css"
-import { getAllDataHistory, getDataAge } from "../data/dataDetail";
+import { filterBattleByName, getAllDataHistory, getDataAge } from "../data/dataDetail";
 import ContentItem from "./ContentItem";
 import ContentSidebar from "./ContentSidebar";
 import Slider from "./Slider";
 import { Link } from "react-router-dom";
 import dataHistory from "../data/dataDetail";
+
 export default function Content({ image, content, imgItem, name }) {
 
     const [activeItem, setActiveItem] = useState()
@@ -28,6 +29,9 @@ export default function Content({ image, content, imgItem, name }) {
     const setAll = () => {
         setCurrentAge(null)
     }
+    
+    const [keyword, setKeyWord] = useState('');
+    const result = keyword ? filterBattleByName(keyword) : agesList;
 
     return (
         <Container fluid className="container-content">
@@ -37,7 +41,7 @@ export default function Content({ image, content, imgItem, name }) {
                     <ListGroup variant="flush" className="d-sm-none list-sidebar d-md-block">
                         <h1 className="sidebar-header">Timeline</h1>
                         <ListGroup.Item action className="item-sidebar" onClick={setAll}>All</ListGroup.Item>
-                        {agesList.map((item) => {
+                        {result.map((item) => {
                             return (
                                 <ListGroup.Item key={item.id} onClick={() => setItem(item)} action className={activeItem === item.id ? "active-sidebar item-sidebar" : 'none-active-sidebar item-sidebar'} >{item.age}</ListGroup.Item>
                             )
@@ -46,7 +50,7 @@ export default function Content({ image, content, imgItem, name }) {
                     <NavDropdown action title="Timeline" className="-none d-sm-block d-md-none">
                         <NavDropdown.Item className="item-sidebar" onClick={setAll}>All</NavDropdown.Item>
                         <NavDropdown.Divider />
-                        {agesList.map((item) => {
+                        {result.map((item) => {
                             return (
                                 <NavDropdown.Item key={item.id} action onClick={() => setItem(item)} >{item.age}</NavDropdown.Item>
                             )
@@ -65,6 +69,7 @@ export default function Content({ image, content, imgItem, name }) {
                                                 placeholder="Search"
                                                 className="me-2"
                                                 aria-label="Search"
+                                                onChange={(event) => setKeyWord(event.target.value)}
                                             />
                                             <Button variant="outline-success">Search</Button>
                                         </Form>
@@ -98,6 +103,7 @@ export default function Content({ image, content, imgItem, name }) {
                                                 placeholder="Search"
                                                 className="me-2"
                                                 aria-label="Search"
+                                                onChange={(event) => setKeyWord(event.target.value)}
                                             />
                                             <Button variant="outline-success">Search</Button>
                                         </Form>
@@ -114,7 +120,7 @@ export default function Content({ image, content, imgItem, name }) {
                                     </Row>
                                     <Row className="container-item">
                                         <>
-                                            {agesList.map((item) => {
+                                            {result.map((item) => {
                                                 return (
                                                         <Col key={item.id} md={3} sm={6} className="list-age">
                                                             <Row className="item">

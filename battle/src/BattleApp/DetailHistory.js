@@ -56,7 +56,7 @@ export default function DetailHistory() {
                         <h1>Ngày bắt đầu : {battle.start} - Ngày kết thúc : {battle.end}</h1>
                     </Row>
                     <Row>
-                        <Col className="text-center"> hình ảnh 1 {battle.img_1}</Col>
+                        <Col className="text-center"> <img src={battle.img_1} /></Col>
                     </Row>
 
                     <Row className="text-center"><h3> Mô tả: </h3> </Row>
