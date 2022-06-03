@@ -9,8 +9,7 @@
     color: #C83D32;
 }
 .container-item{
-    height: 600px;
-    overflow-y: scroll;
+    height: 400px;
 }
 .content-item{
     padding-bottom: 50px;
@@ -29,6 +28,7 @@
     text-align: left;
     font-size: 25px;
     margin-left: 10px;
+    color: rgb(200,61,50);
 }
 .activeItem {
     transform: translateX(5px);
