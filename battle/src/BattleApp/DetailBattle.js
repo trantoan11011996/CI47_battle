@@ -1,8 +1,7 @@
-
 import React, { useContext, useEffect, useState } from "react";
 import { Container, Row, Col, Form, Carousel, Button } from "react-bootstrap";
 import { useParams, Link } from "react-router-dom";
-import { getAgebyId, getBattlebyId } from "../data/dataDetail";
+import { getAgebyId, getBattle, getBattlebyId } from "../data/dataDetail";
 import "../css/detail.css"
 import { AuthContext } from "./user";
 import { Alert } from "bootstrap";
@@ -10,12 +9,12 @@ import Login from "./login";
 import LoginDetail from "./loginDetail";
 import { Create, getComment, getCommentByid } from "./comment";;
 
-export default function DetailHistory() {
-    const { ageId, battleId } = useParams()
+export default function DetailBattle() {
+    const { battleId } = useParams()
     const [battle, setBattle] = useState({})
     const [longinModal, setLoginModal] = useState(false)
     const [comment, setComment] = useState('')
-    const [comments,setComments] = useState(getCommentByid(ageId,battleId))
+    const [comments,setComments] = useState(getCommentByid(battleId))
     const auth = useContext(AuthContext)
 
 
@@ -28,18 +27,18 @@ export default function DetailHistory() {
             alert('nhập comment')
             return
         }
-        Create(auth.currentUser.email, ageId, battleId, comment) 
-        const newComment =[...getCommentByid(ageId,battleId)]
+        Create(auth.currentUser.email,battleId, comment) 
+        const newComment =[...getCommentByid(battleId)]
         setComments(newComment)
         setComment('')
     }
     console.log(comments)
     useEffect(() => {
-        const detail = getBattlebyId(ageId, battleId)
+        const detail = getBattle(battleId)
         setBattle(detail)
-    }, [ageId, battleId])
-    const detailDevelopment = getBattlebyId(ageId, battleId)
-    const detailNation = getBattlebyId(ageId, battleId)
+    }, [battleId])
+    const detailDevelopment = getBattle(battleId)
+    const detailNation = getBattle(battleId)
 
     const showLoginModal = () => {
         setLoginModal(true)

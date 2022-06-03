@@ -14,7 +14,7 @@ import Header from "./Header";
 import Footer from "./Footer";
 import { AuthContext, autoLogin, generateInitUser, getUsers } from "./user";
 import { generateCommentUser,getComment } from "./comment";
-
+import DetailBattle from "./DetailBattle"
 
 generateInitUser()
 generateCommentUser()
@@ -28,9 +28,6 @@ export default function ContainerApp() {
         const theUser = autoLogin()
         setCurrentUser(theUser)
     },[])
-    console.log(currentUser)
-
-    
     return (
         <AuthContext.Provider value={{currentUser,setCurrentUser,users,setUsers}}>
         <BrowserRouter>
@@ -38,6 +35,7 @@ export default function ContainerApp() {
             <Container fluid>
                 <Routes>
                     <Route path="/ages/:ageId/battles/:battleId" element={<DetailHistory/>}></Route>
+                    <Route path="/battles/:battleId" element={<DetailBattle/>}></Route>
                     <Route path="/" element = { <HomePage/>}></Route>
                     <Route path="/register" element = {<Register/>}></Route>
                     <Route path="/login" element = {<Login />}></Route>

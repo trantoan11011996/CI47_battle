@@ -23,7 +23,7 @@ export default function Header() {
                 <Navbar fixed="top" key={expand} expand={expand} className="mb-3 padding_navbar navbar-header" >
                     <Container fluid>
                         <Navbar.Brand className={activeClassName}>
-                            <NavLink to="/">HistoryBattle</NavLink>
+                            <NavLink className="header-link" to="/">HistoryBattle</NavLink>
                         </Navbar.Brand>
                         <Navbar.Toggle aria-controls={`offcanvasNavbar-expand-${expand}`} />
                         <Navbar.Offcanvas

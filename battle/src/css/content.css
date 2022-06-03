@@ -22,7 +22,7 @@ h3 {
     color: #C83D32;
 }
 .container-item{
-    height: 600px;
+    height: 400px;
     overflow-y: scroll;
 }
 .content-item{
@@ -42,6 +42,7 @@ h3 {
     text-align: left;
     font-size: 25px;
     margin-left: 10px;
+    color: rgb(200,61,50);
 }
 .activeItem {
     transform: translateX(5px);
@@ -187,4 +188,7 @@ h3 {
 .img-banner img{
     width: 50%;
     border-radius: 10px;
+}
+.search-battle{
+    
 }

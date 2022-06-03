@@ -7,31 +7,65 @@ import ContentSidebar from "./ContentSidebar";
 import Slider from "./Slider";
 import { Link } from "react-router-dom";
 import dataHistory from "../data/dataDetail";
+import ContentBattle from "./ContentBattle";
 
 export default function Content({ image, content, imgItem, name }) {
 
     const [activeItem, setActiveItem] = useState()
     const [agesList, setAgesList] = useState([])
     const [currentAge, setCurrentAge] = useState(null)
+    const [allBattle, setAllBatte] = useState([])
+    const [activeAll, setActiveAll] = useState(false)
+    const [resultFilter, setResultFilter] = useState('')
 
+    console.log(resultFilter)
+    
     useEffect(() => {
         let data = getAllDataHistory()
         setAgesList(data)
     }, [])
 
 
+    const dataBattles = []
+    const battles = getAllDataHistory()
+    const battle = battles.map((item) => {
+        return item.battles
+    })
+    const battleItem = battle.map((item) => {
+        return item.map((itembattle) => {
+            dataBattles.push(itembattle)
+        })
+    })
     const setItem = (item) => {
         setCurrentAge(item)
+        setActiveAll(false)
     }
-
-
-    const setAll = () => {
+    const setNothing = () => {
         setCurrentAge(null)
     }
-    
-    const [keyword, setKeyWord] = useState('');
-    const result = keyword ? filterBattleByName(keyword) : agesList;
+    const setAllItem = () => {
+        setAllBatte(dataBattles)
+        setCurrentAge(1)
+        setActiveAll(true)
+    }
+   
 
+    const filteredData = allBattle.filter((el) => {
+        if (resultFilter === '') {
+            return el;
+        }
+        if (el.name.toLowerCase().includes(resultFilter)) {
+            return el
+        }
+        else {
+            for (let item of el.name) {
+                if (item.toLowerCase().includes(resultFilter)) {
+                    return el
+                }
+            }
+        }
+    })
+    console.log(allBattle)
     return (
         <Container fluid className="container-content">
             <Row className="content-item">
@@ -40,7 +74,8 @@ export default function Content({ image, content, imgItem, name }) {
                     <Col className="col-sidebar" md={3}>
                         <ListGroup variant="flush" className="d-sm-none list-sidebar d-md-block">
                             <h1 className="sidebar-header">Timeline</h1>
-                            <ListGroup.Item action className="item-sidebar" onClick={setAll}>Khái Quát</ListGroup.Item>
+                            <ListGroup.Item action className="item-sidebar" onClick={setNothing}>Khái Quát</ListGroup.Item>
+                            <ListGroup.Item action className="item-sidebar" onClick={setAllItem}>Tất cả</ListGroup.Item>
                             {agesList.map((item) => {
                                 return (
                                     <ListGroup.Item key={item.id} onClick={() => setItem(item)} action className={activeItem === item.id ? "active-sidebar item-sidebar" : 'none-active-sidebar item-sidebar'} >{item.age}</ListGroup.Item>
@@ -48,7 +83,7 @@ export default function Content({ image, content, imgItem, name }) {
                             })}
                         </ListGroup>
                         <NavDropdown action title="Timeline" className="-none d-sm-block d-md-none">
-                            <NavDropdown.Item className="item-sidebar" onClick={setAll}>Tất cả thời kì</NavDropdown.Item>
+                            <NavDropdown.Item className="item-sidebar" onClick={setNothing}>Tất cả thời kì</NavDropdown.Item>
                             <NavDropdown.Divider />
                             {agesList.map((item) => {
                                 return (
@@ -60,10 +95,10 @@ export default function Content({ image, content, imgItem, name }) {
                     <Col className="col-content" md={9}>
                         <Container className="container-content">
                             {currentAge &&
-                                <div>
-                                    <Row>
+                                <div>{activeAll && (
+                                    <Row className="shadow-sm search-battle">
                                         <Col md={6} ms={12} className="ms-auto mr-3">
-                                            <Form className="d-flex ">
+                                            <Form className="d-flex" onChange={(event)=>setResultFilter(event.target.value.toLowerCase())}>
                                                 <FormControl
                                                     type="search"
                                                     placeholder="Search"
@@ -74,6 +109,7 @@ export default function Content({ image, content, imgItem, name }) {
                                             </Form>
                                         </Col>
                                     </Row>
+                                )}
                                     <Row className="content">
                                         <Row>
                                             <Col md={12} className="img-banner">
@@ -84,28 +120,27 @@ export default function Content({ image, content, imgItem, name }) {
                                             </Col> */}
                                         </Row>
                                         <Row className="container-item">
-                                            {currentAge.battles.map((item) => {
-                                                return (
-                                                    <ContentItem key={item.id} img={item.img_age} name={item.name} age={currentAge} id={item.idBattles} idAge={currentAge.id} />
-                                                )
-                                            })}
+                                            {activeAll ? (
+                                                <>
+                                                    {filteredData.map((item) => {
+                                                        return (
+                                                            <ContentBattle key={item.id} img={item.img_age} name={item.name} age={currentAge} id={item.idBattles} idAge={currentAge.id} />
+                                                        )
+                                                    })}
+                                                </>
+                                            ) : (<>
+                                                {currentAge.battles.map((item) => {
+                                                    return (
+                                                        <ContentItem key={item.id} img={item.img_age} name={item.name} age={currentAge} id={item.idBattles} idAge={currentAge.id} />
+                                                    )
+                                                })}
+                                            </>)}
                                         </Row>
                                     </Row>
                                 </div>}
                             {!currentAge &&
                                 <div>
                                     <Row>
-                                        <Col md={6} ms={12} className="ms-auto mr-3">
-                                            <Form className="d-flex ">
-                                                <FormControl
-                                                    type="search"
-                                                    placeholder="Search"
-                                                    className="me-2"
-                                                    aria-label="Search"
-                                                />
-                                                <Button variant="outline-success">Search</Button>
-                                            </Form>
-                                        </Col>
                                     </Row>
                                     <Row className="content">
                                         <Row >
