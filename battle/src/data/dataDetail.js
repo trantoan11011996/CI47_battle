@@ -147,7 +147,7 @@ const dataHistory = [
         img: 'https://i.postimg.cc/QxFGpvJW/8-cuoc-chien-thuong-vong-dam-mau-nhat-lich-su-loai-nguoi-16-26-52.jpg',
         battles: [
             {
-                idBattles: 1,
+                idBattles: 4,
                 name: "Loạn 12 sứ quân",
                 start: "Năm 944",
                 end: "Năm 968",
@@ -194,7 +194,7 @@ const dataHistory = [
                 meaning: "Chiến thắng của cuộc dẹp loạn Đinh Bộ Lĩnh so với các thế lực cát cứ là việc khẳng định về quyền lực, sự thống nhất. Đồng thời khẳng định thắng lợi của tinh thần đoàn kết dân tộc bản địa và ý chí độc lập mạnh mẽ của nhân dân Việt Nam lúc bấy giờ. Các sứ quân lần lượt bị chiếm đánh, chấm hết cuộc nội loạn cát cứ. đất nước đã trở lại bình yên thống nhất. Khẳng định lòng yêu nước của nhân dân ta."
             },
             {
-                idBattles: 2,
+                idBattles: 5,
                 name: "Chiến tranh Tống-Việt lần 1",
                 start: "tháng 1 năm 981 ",
                 end: "Năm 986",
@@ -272,7 +272,7 @@ const dataHistory = [
                 meaning: "Cuộc kháng chiến chống quân Tống xâm lược thắng lợi đã giữ vững được nền độc lập của nước nhà và đem lại cho nhân dân ta niềm tự hào, lòng tin ở sức mạnh và tiền đồ của dân tộc.",
             },
             {
-                idBattles: 3,
+                idBattles: 6,
                 name: "Chiến tranh Tống-Việt lần 2",
                 start: "27 tháng 10 năm 1075 ",
                 end: "1 tháng 3 năm 1076",
@@ -319,7 +319,7 @@ const dataHistory = [
                 meaning: "Đè bẹp ý chí xâm lược của nhà Tống. Nhà Tống phải công nhận nước ta là vương quốc độc lập, trong khoảng 200 năm không dám đụng chạm đến. Đó là kết quả của một bước phát triển vượt bậc của dân tộc ta về mọi mặt sau hơn một thế kỷ giành độc lập, của đất nước đang ở thế “rồng cuộn hổ ngồi“***.***",
             },
             {
-                idBattles: 4,
+                idBattles: 7,
                 name: "Trận Như Nguyệt",
                 start: "18 tháng 1 năm 1077 ",
                 end: "28 tháng 2 năm 1077",
@@ -374,7 +374,7 @@ const dataHistory = [
         img: 'https://i.postimg.cc/DZP1ZCMC/images.jpg',
         battles:[
             {
-                idBattles: 1,
+                idBattles: 8,
                 name: " Trận Tốt Động - Chúc Động",
                 start: "Ngày 5 tháng 7 năm 1426",
                 end: "",
@@ -409,7 +409,7 @@ const dataHistory = [
                 meaning: "Kết cục của trận Tốt Động-Chúc Động đã làm phá sản kế hoạch phản công của Vương Thông đồng thời tạo ra lợi thế cho nghĩa quân Lam Sơn buộc quân Minh phải rút về cố thủ và chấp nhận đàm phán. Do mất rất nhiều vũ khí trong trận này, quân Minh buộc phải tìm cách chế tạo vũ khí. Vương Thông đã sai quân phá chuông Quy Điền, vạc Phổ Minh để làm hỏa khí. Trong khi đó, quân Lam Sơn có thêm rất nhiều vũ khí và có thể đã tiếp thu thêm công nghệ chế tạo súng của quân Minh."
             },
             {
-                idBattles: 2,
+                idBattles: 9,
                 name: " Trận Chi Lăng - Xương Giang",
                 start: "Ngày 8 tháng 10 năm 1427",
                 end: "Ngày 3 tháng 1 năm 1428",
@@ -458,7 +458,7 @@ const dataHistory = [
         img: 'https://i.postimg.cc/FFgQrjs7/images396610-T4-Anh-Minh-hoa-Le-trung-hung.jpg',
         battles:[
             {
-                idBattles: 1,
+                idBattles: 10,
                 name: " Trận Rạch Gầm - Xoài Mút",
                 start: "19 tháng 1 năm 1785",
                 end: "20 tháng 1 năm 1785",
@@ -572,7 +572,7 @@ const dataHistory = [
         img: 'https://i.postimg.cc/tCZtdzZg/Unknown.jpg',
         battles:[
             {
-                idBattles: 1,
+                idBattles: 11,
                 name: " Chiến dịch Điện Biên Phủ",
                 start: "13 tháng 3, 1954 ",
                 end: "7 tháng 5, 1954",
@@ -639,7 +639,7 @@ const dataHistory = [
         img: 'https://i.postimg.cc/BQ0HDG0m/tay-nguyen.jpg',
         battles:[
             {
-                idBattles: 1,
+                idBattles: 12   ,
                 name: " Chiến dịch Điện Biên Phủ trên không",
                 start: "18 tháng 12 năm 1972 ",
                 end: "30 tháng 12 năm 1972",
@@ -706,3 +706,26 @@ export function getBattlebyId(idAge, idBattles) {
 export function filterBattleByName(keyword) {
     return dataHistory.filter((item) => item.name.toLowerCase().indexOf(keyword.toLowerCase()) > -1)
   }
+  
+  
+    const battles = getAllDataHistory()
+    const battle = battles.map((item) => {
+        return item.battles
+    })
+   
+    export function battleItem(){
+        const dataBattles = []
+        const battleItem = battle.map((item) => {
+            return item.map((itembattle) => {
+                dataBattles.push(itembattle)
+            })
+        })
+        return dataBattles
+    }
+    export function getBattle(idBattles) {
+        const detail = battleItem()
+        const battle = detail.find(item=>item.idBattles==idBattles)
+        return battle
+    }
+
+    

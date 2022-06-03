@@ -9,9 +9,9 @@ export default function Footer() {
     return (
         <Card fluid className="footer_container">
             <Row>
-            <Col md={4}>
+            <Col md={6}>
             </Col>
-            <Col md ={8}>
+            <Col md ={4}>
             <Form className="form-footer">
                 <Form.Group className="mb-3" controlId="formBasicEmail">
                     <Form.Label>Your Email</Form.Label>

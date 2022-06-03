@@ -23,6 +23,7 @@ h3 {
 }
 .container-item{
     height: 400px;
+    overflow-y: scroll;
 }
 .content-item{
     padding-bottom: 50px;
@@ -187,4 +188,7 @@ h3 {
 .img-banner img{
     width: 50%;
     border-radius: 10px;
+}
+.search-battle{
+    
 }
