@@ -27,3 +27,14 @@
     padding-bottom: 30px;
     border-bottom: 1px solid #ccc;
 }
+
+@media(max-width: 600px){
+    .footer_container .footer_item{
+        display: flex;
+        flex-direction: column;
+        justify-content: center;
+        align-items: center;
+        text-align: center;
+
+    }
+}   

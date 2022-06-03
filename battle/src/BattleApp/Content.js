@@ -19,7 +19,7 @@ export default function Content({ image, content, imgItem, name }) {
     const [resultFilter, setResultFilter] = useState('')
 
     console.log(resultFilter)
-    
+
     useEffect(() => {
         let data = getAllDataHistory()
         setAgesList(data)
@@ -36,6 +36,7 @@ export default function Content({ image, content, imgItem, name }) {
             dataBattles.push(itembattle)
         })
     })
+    console.log(dataBattles)
     const setItem = (item) => {
         setCurrentAge(item)
         setActiveAll(false)
@@ -48,7 +49,6 @@ export default function Content({ image, content, imgItem, name }) {
         setCurrentAge(1)
         setActiveAll(true)
     }
-   
 
     const filteredData = allBattle.filter((el) => {
         if (resultFilter === '') {
@@ -65,7 +65,7 @@ export default function Content({ image, content, imgItem, name }) {
             }
         }
     })
-    console.log(allBattle)
+    console.log(currentAge)
     return (
         <Container fluid className="container-content">
             <Row className="content-item">
@@ -98,7 +98,7 @@ export default function Content({ image, content, imgItem, name }) {
                                 <div>{activeAll && (
                                     <Row className="shadow-sm search-battle">
                                         <Col md={6} ms={12} className="ms-auto mr-3">
-                                            <Form className="d-flex" onChange={(event)=>setResultFilter(event.target.value.toLowerCase())}>
+                                            <Form className="d-flex" onChange={(event) => setResultFilter(event.target.value.toLowerCase())}>
                                                 <FormControl
                                                     type="search"
                                                     placeholder="Search"

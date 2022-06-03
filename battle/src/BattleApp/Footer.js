@@ -33,7 +33,7 @@ export default function Footer() {
             </Row>
             <Row>
                 <Col sm={12} md={2}>
-                    <div className="description">
+                    <div className="description footer_item">
                         <h4>Suviet</h4>
                         <hr />
                         <p>SuViet là một trang ghi chú tổng hợp về các trận đánh nổi tiếng và quan trọng trong lịch sử Việt Nam</p>
@@ -43,7 +43,7 @@ export default function Footer() {
                 <Col sm={12} md={3}></Col>
 
                 <Col sm={12} md={2}>
-                    <div className="info">
+                    <div className="info footer_item">
                         <div>
                             <h4>Info nhóm</h4>
                             <hr />
@@ -53,20 +53,24 @@ export default function Footer() {
                 </Col>
 
                 <Col sm={12} md={2}>
-                    <h4>Liên hệ</h4>
-                    <hr />
-                    <div className="contact">
-                        <div> <img className="icon" src={instagramlogo} alt={"instagram logo"} />  </div>
-                        <div> <img className="icon" src={facebooklogo} alt={"facebook logo"} />  </div>
-                        <div> <img className="icon" src={githublogo} alt={"github logo"} />  </div>
-                    </div>
+                   <div className="footer_item">
+                        <h4>Liên hệ</h4>
+                        <hr />
+                        <div className="contact">
+                            <div> <img className="icon" src={instagramlogo} alt={"instagram logo"} />  </div>
+                            <div> <img className="icon" src={facebooklogo} alt={"facebook logo"} />  </div>
+                            <div> <img className="icon" src={githublogo} alt={"github logo"} />  </div>
+                        </div>        
+                    </div> 
                 </Col>
 
                 <Col sm={12} md={3}>
-                    <h4>Nội dung và thông tin</h4>
-                    <hr />
-                    <div>
-                        <p>Nội dung và thông tin các trang đánh được tham khảo và trích dẫn từ nhiều nguồn khác nhau</p>
+                    <div className="footer_item">
+                        <h4>Nội dung và thông tin</h4>
+                        <hr />
+                        <div>
+                            <p>Nội dung và thông tin các trang đánh được tham khảo và trích dẫn từ nhiều nguồn khác nhau</p>
+                        </div>
                     </div>
                 </Col>
 
