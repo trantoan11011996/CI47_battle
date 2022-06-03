@@ -1,4 +1,17 @@
+p {
+    font-family: 'Montserrat', sans-serif;
+    font-weight: 400;
+}
 
+h1 {
+    font-family: 'Noto Serif', serif;
+    font-size: 700;
+}
+
+h3 {
+    font-family: 'Noto Serif', serif;
+    font-size: 700;
+}
 /* .container-content{
     background-color: #FFF5A5;
 } */

@@ -18,16 +18,16 @@ export default function Slider() {
                 {data.map((item) => {
                     return item.battles.map((itemBatle) => {
                         return (
-                            <Carousel.Item>
+                            <Carousel.Item >
                                 <Link to={"/ages/" + item.id + "/battles/" + itemBatle.idBattles} className='link-detail'>
                                     <img
                                         className="d-block w-100 img-slide-header"
                                         alt="First slide"
                                         src={itemBatle.img_age}
                                     />
-                                    <Carousel.Caption>
-                                        <Button variant="info">More detail</Button>
+                                    <Carousel.Caption className="carousel_container">
                                         <h1 className="slider-header">{itemBatle.name}</h1>
+                                        <Button variant="info">More detail</Button>
                                     </Carousel.Caption>
                                 </Link>
                             </Carousel.Item>
