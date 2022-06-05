@@ -7,18 +7,19 @@ import { AuthContext } from "./user";
 import { Alert } from "bootstrap";
 import Login from "./login";
 import LoginDetail from "./loginDetail";
-import { Create, getComment, getCommentByid } from "./comment";;
+import { CreateByBattle, getComment, getCommentByidBattle } from "./comment";;
 
 export default function DetailBattle() {
     const { battleId } = useParams()
     const [battle, setBattle] = useState({})
     const [longinModal, setLoginModal] = useState(false)
     const [comment, setComment] = useState('')
-    const [comments,setComments] = useState(getCommentByid(battleId))
+    const [comments,setComments] = useState(getCommentByidBattle(battleId))
     const auth = useContext(AuthContext)
 
 
     const handleSubmitComment = (event) => {
+        console.log('alo')
         event.preventDefault()
         if (!auth.currentUser) {
             return
@@ -27,8 +28,8 @@ export default function DetailBattle() {
             alert('nhập comment')
             return
         }
-        Create(auth.currentUser.email,battleId, comment) 
-        const newComment =[...getCommentByid(battleId)]
+        CreateByBattle(auth.currentUser.email,battleId, comment) 
+        const newComment =[...getCommentByidBattle(battleId)]
         setComments(newComment)
         setComment('')
     }

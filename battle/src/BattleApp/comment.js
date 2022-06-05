@@ -4,7 +4,7 @@ export function generateCommentUser(){
         localStorage.setItem('comments', JSON.stringify(comments))
     }
 }
-export function Create(useremail, idAge, idBattle,comment) {
+export function CreateByAge(useremail, idAge, idBattle,comment) {
    const newComment = {
        email : useremail,
        age : idAge,
@@ -15,6 +15,16 @@ export function Create(useremail, idAge, idBattle,comment) {
    comments.push(newComment)
    localStorage.setItem('comments',JSON.stringify(comments))
 }
+export function CreateByBattle(useremail, idBattle,comment) {
+    const newComment = {
+        email : useremail,
+        battle : idBattle,
+        content : comment,
+    }
+    let comments = getComment() 
+    comments.push(newComment)
+    localStorage.setItem('comments',JSON.stringify(comments))
+ }
 export function getComment() {
     let json = localStorage.getItem('comments')
     if(!json){
@@ -33,7 +43,20 @@ export function getCommentByid(ageId,battleId){
     else{
         const commentById = JSON.parse(json)
         return commentById.filter((item)=>{
-            return item.age==ageId && item.battle==battleId
+            return item.age==ageId || item.battle==battleId
+        })
+    }
+}
+
+export function getCommentByidBattle(battleId){
+    let json = localStorage.getItem('comments')
+    if(!json){
+        return []
+    }
+    else{
+        const commentById = JSON.parse(json)
+        return commentById.filter((item)=>{
+            return  item.battle==battleId
         })
     }
 }

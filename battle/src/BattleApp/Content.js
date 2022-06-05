@@ -8,17 +8,15 @@ import Slider from "./Slider";
 import { Link } from "react-router-dom";
 import dataHistory from "../data/dataDetail";
 import ContentBattle from "./ContentBattle";
+import {slice, concat, } from 'lodash';
 
-export default function Content({ image, content, imgItem, name }) {
-
-    const [activeItem, setActiveItem] = useState()
+export default function Content() {
     const [agesList, setAgesList] = useState([])
     const [currentAge, setCurrentAge] = useState(null)
     const [allBattle, setAllBatte] = useState([])
     const [activeAll, setActiveAll] = useState(false)
     const [resultFilter, setResultFilter] = useState('')
-
-    console.log(resultFilter)
+ 
 
     useEffect(() => {
         let data = getAllDataHistory()
@@ -50,7 +48,14 @@ export default function Content({ image, content, imgItem, name }) {
         setActiveAll(true)
     }
 
-    const filteredData = allBattle.filter((el) => {
+   const [noOfelement,setnoOfElement] = useState(4)
+   
+    const loadmore = () => {
+        setnoOfElement(noOfelement + noOfelement)
+    }
+    const slice = dataBattles.slice(0,noOfelement)
+    console.log(slice)
+    const filteredData = slice.filter((el) => {
         if (resultFilter === '') {
             return el;
         }
@@ -65,7 +70,6 @@ export default function Content({ image, content, imgItem, name }) {
             }
         }
     })
-    console.log(currentAge)
     return (
         <Container fluid className="container-content">
             <Row className="content-item">
@@ -78,7 +82,7 @@ export default function Content({ image, content, imgItem, name }) {
                             <ListGroup.Item action className="item-sidebar" onClick={setAllItem}>Tất cả</ListGroup.Item>
                             {agesList.map((item) => {
                                 return (
-                                    <ListGroup.Item key={item.id} onClick={() => setItem(item)} action className={activeItem === item.id ? "active-sidebar item-sidebar" : 'none-active-sidebar item-sidebar'} >{item.age}</ListGroup.Item>
+                                    <ListGroup.Item key={item.id} onClick={() => setItem(item)} action className='item-sidebar' >{item.age}</ListGroup.Item>
                                 )
                             })}
                         </ListGroup>
@@ -127,6 +131,9 @@ export default function Content({ image, content, imgItem, name }) {
                                                             <ContentBattle key={item.id} img={item.img_age} name={item.name} age={currentAge} id={item.idBattles} idAge={currentAge.id} />
                                                         )
                                                     })}
+                                                    <div className="btn-content">
+                                                     <Button onClick={loadmore} variant="dark" className="btn-loadmore"> Load More </Button>
+                                                    </div>
                                                 </>
                                             ) : (<>
                                                 {currentAge.battles.map((item) => {

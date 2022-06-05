@@ -8,7 +8,7 @@ import { AuthContext } from "./user";
 import { Alert } from "bootstrap";
 import Login from "./login";
 import LoginDetail from "./loginDetail";
-import { Create, getComment, getCommentByid } from "./comment";;
+import { CreateByAge, getComment, getCommentByid } from "./comment";;
 
 export default function DetailHistory() {
     const { ageId, battleId } = useParams()
@@ -28,7 +28,7 @@ export default function DetailHistory() {
             alert('nhập comment')
             return
         }
-        Create(auth.currentUser.email, ageId, battleId, comment) 
+        CreateByAge(auth.currentUser.email, ageId, battleId, comment) 
         const newComment =[...getCommentByid(ageId,battleId)]
         setComments(newComment)
         setComment('')
@@ -57,7 +57,7 @@ export default function DetailHistory() {
                         <h1>Ngày bắt đầu : {battle.start} - Ngày kết thúc : {battle.end}</h1>
                     </Row>
                     <Row>
-                        <Col className="text-center img-battle"><img src={battle.img_age}></img></Col>
+                        <Col className="text-center "><img className="img-battle" src={battle.img_age}></img></Col>
                     </Row>
 
                     <Row className="text-center"><h3> Mô tả: </h3> </Row>
