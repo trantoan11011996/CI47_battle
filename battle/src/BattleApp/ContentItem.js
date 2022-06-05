@@ -4,19 +4,28 @@ import { useParams, Link } from "react-router-dom";
 import '../css/content.css'
 import dataDetails from "../data/dataDetail";
 
-export default function ContentItem({ id, name, idAge,img }) {
+export default function ContentItem({ id, name, idAge, img }) {
+    const background = {
+        backgroundImage: `url(${img})`
+    }
     return (
         <Col md={3} sm={6} className="list-item">
             <Link to={"/ages/" + idAge + "/battles/" + id} className='link-detail'>
-                <Row className="item">
-                    <Col className="item-img" md={12}>
-                        <img className="img" src={img}></img>
-                    </Col>
-                    <Col md={12} className="item-name">
-                        <p>{name}</p>
-                    </Col>
-                    <Button variant="outline-dark" className="btn-detail">More detail</Button>
-                </Row>
+                <div className="flip-box">
+                    <div className="flip-box-front text-center">
+                        <img src={img}></img>
+                        <div className="inner color-white">
+                            <p>{name}</p>
+                        </div>
+                    </div>
+                    <div className="flip-box-back text-center">
+                        <img src={img}></img>
+                        <div className="inner color-white">
+                            <p>{name}</p>
+                            <Button variant="outline-dark" className="btn-detail">More detail</Button>
+                        </div>
+                    </div>
+                </div>
             </Link>
         </Col>
     )
