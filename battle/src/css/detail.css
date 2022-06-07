@@ -7,10 +7,14 @@
         opacity: 1;
     }
 }
+.img-battle > img{
+    width: 100%;
+    height: auto;
+}
 .item-detail{
     margin-top: 61px;
     background-color: rgb(253,250,227);
-    animation: show-detail ease-in-out 1s;
+    animation: show-detail ease-in-out 2s;
 }
 .btn-login{
     margin-top: 10px;

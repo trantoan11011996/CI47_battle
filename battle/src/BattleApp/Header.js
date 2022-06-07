@@ -3,14 +3,29 @@ import { Container, Navbar, Nav, NavDropdown, Form, FormControl, Button, Offcanv
 import "../css/header.css"
 import Resigter from "./register";
 import Login from "./login";
-import { NavLink } from 'react-router-dom';
+import { Link, NavLink } from 'react-router-dom';
 import { AuthContext } from "./user";
 import { RemoveUser } from "./user";
+import { getAllDataHistory } from "../data/dataDetail";
 
-export default function Header() {
+export default function Header({ placeholder, data }) {
     const activeClassName = ({ isActive }) => isActive ? "nav-link text-primary" : "nav-link";
     const auth = useContext(AuthContext)
+    const [filterData, setFilterData] = useState([])
 
+    const handleBattlename = (e)=>{
+        const searchWord = e.target.value
+        const filterBattle = data.filter((item)=>{
+            return item.name.toLowerCase().includes(searchWord.toLowerCase())
+        })
+        if(searchWord===""){
+            setFilterData([])
+        }
+        else{
+            setFilterData(filterBattle)
+        }
+        
+    }
 
     const removeItem = () => {
         RemoveUser()
@@ -60,7 +75,7 @@ export default function Header() {
                                         <Form className="d-flex">
                                             <FormControl
                                                 type="search"
-                                                placeholder="Search"
+                                                placeholder={placeholder}
                                                 className="me-2"
                                                 aria-label="Search"
                                             />
@@ -91,14 +106,25 @@ export default function Header() {
                                                 </NavDropdown.Item>
                                             </NavDropdown>
                                         </Nav>
-                                        <Form className="d-flex">
+                                        <Form className="d-flex search-header">
                                             <FormControl
                                                 type="search"
-                                                placeholder="Search"
+                                                placeholder={placeholder}
                                                 className="me-2"
                                                 aria-label="Search"
+                                                onChange = {handleBattlename}
                                             />
-                                            <Button variant="outline-success">Search</Button>
+                                            {filterData.length != 0 && (
+                                                <div className="data-result">
+                                                    {filterData.map((item) => {
+                                                        return (
+                                                            <Link  to={"/battles/" + item.idBattles} className="data-name">
+                                                                <p>{item.name}</p>
+                                                            </Link>
+                                                        )
+                                                    })}
+                                                </div>
+                                            )}
                                         </Form>
                                     </>}
                             </Offcanvas.Body>

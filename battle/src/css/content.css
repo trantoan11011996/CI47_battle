@@ -92,6 +92,9 @@ h3 {
         opacity: 1;
     }
 }
+.history-content{
+    text-align: justify;
+}
 .col-content{
     animation: show-col-content ease-in-out 0.8s;
 }
@@ -107,7 +110,9 @@ h3 {
     padding: 0 15px;
     margin-top: 50px;
 }
-
+.list-item-battle{
+    animation: show-item ease-in-out 1s;
+}
 .link-detail{
     perspective: 1000px;
 }
@@ -253,4 +258,7 @@ h3 {
 }
 .inner{
     margin-top: 20px;
+}
+.search-battle{
+    padding: 10px 0;
 }

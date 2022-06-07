@@ -37,6 +37,7 @@ export default function DetailHistory() {
     useEffect(() => {
         const detail = getBattlebyId(ageId, battleId)
         setBattle(detail)
+        window.scrollTo(0, 0);
     }, [ageId, battleId])
     const detailDevelopment = getBattlebyId(ageId, battleId)
     const detailNation = getBattlebyId(ageId, battleId)
@@ -44,10 +45,8 @@ export default function DetailHistory() {
     const showLoginModal = () => {
         setLoginModal(true)
     }
-
-    // const createComment = (event)=>{
-    //     Create(auth.currentUser.email,)
-    // }
+    
+    
     return (
         <Container className="history-container item-detail">
             <Container>

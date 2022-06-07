@@ -15,6 +15,7 @@ import Footer from "./Footer";
 import { AuthContext, autoLogin, generateInitUser, getUsers } from "./user";
 import { generateCommentUser,getComment } from "./comment";
 import DetailBattle from "./DetailBattle"
+import { getAllDataHistory } from "../data/dataDetail";
 
 generateInitUser()
 generateCommentUser()
@@ -27,11 +28,23 @@ export default function ContainerApp() {
     useEffect(()=>{
         const theUser = autoLogin()
         setCurrentUser(theUser)
+        window.scrollTo(0, 0);
     },[])
+    const dataBattles = []
+    const battles = getAllDataHistory()
+    const battle = battles.map((item) => {
+        return item.battles
+    })
+    const battleItem = battle.map((item) => {
+        return item.map((itembattle) => {
+            dataBattles.push(itembattle)
+        })
+    })
+ 
     return (
         <AuthContext.Provider value={{currentUser,setCurrentUser,users,setUsers}}>
         <BrowserRouter>
-            <Header/>
+            <Header placeholder='Enter battle name...' data={dataBattles}/>
             <Container fluid>
                 <Routes>
                     <Route path="/ages/:ageId/battles/:battleId" element={<DetailHistory/>}></Route>

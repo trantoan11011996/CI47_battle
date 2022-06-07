@@ -6,7 +6,7 @@ import dataDetails from "../data/dataDetail";
 
 export default function ContentBattle({ id, name, idAge, img }) {
     return (
-        <Col md={3} sm={6} className="list-item ">
+        <Col md={3} sm={6} className="list-item list-item-battle">
             <Link to={"/battles/" + id} className='link-detail'>
                 <div className="flip-box">
                     <div className="flip-box-front text-center">
