@@ -33,7 +33,6 @@ export default function DetailHistory() {
         setComments(newComment)
         setComment('')
     }
-    console.log(comments)
     useEffect(() => {
         const detail = getBattlebyId(ageId, battleId)
         setBattle(detail)
