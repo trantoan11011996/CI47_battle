@@ -1,0 +1,40 @@
+.footer_container {
+    background-color: #FDFAE3;
+    padding: 20px 72px;
+    gap: 10px;
+}
+
+.footer_container h3{
+    margin: 0px 0px;
+}
+
+.footer_container hr {
+    width: 50px;
+}
+
+
+.contact {
+    display: flex;
+    flex-direction: row;
+    gap: 10px;
+}
+
+.icon {
+    width: 30px;
+    height: 30px;
+}
+.form-footer{
+    padding-bottom: 30px;
+    border-bottom: 1px solid #ccc;
+}
+
+@media(max-width: 600px){
+    .footer_container .footer_item{
+        display: flex;
+        flex-direction: column;
+        justify-content: center;
+        align-items: center;
+        text-align: center;
+
+    }
+}   

@@ -1,0 +1,49 @@
+.padding_navbar{
+    padding : 10px 60px;
+}
+.navbar-header{
+    background-color: #FDFAE3;
+    box-shadow: 0 0 3px;
+}
+@media (max-width : 767px){
+    .padding_navbar{
+        padding :10px 0px;
+    }
+  
+}
+.header-link{
+    color: rgb(177,59,51);
+    text-decoration: none;
+}
+.search-header{
+    display: flex;
+    flex-direction: column;
+    position: relative;
+}
+.data-result{
+    overflow: hidden;
+    overflow-y: auto;
+    height: 230px;
+    width: 200px;
+    box-shadow: rgba(0, 0, 0, 0.35) 0px 5px 15px;
+    position: absolute;
+    top: 45px;
+    background-color: white;
+}
+.data-name>p{
+    margin-bottom: 0;
+    margin-left: 10px;
+    padding: 5px;
+    margin-top: 5px;
+}
+.data-name:hover{
+    background-color: lightgrey;
+    cursor: pointer;
+}
+.data-result::-webkit-scrollbar {
+    display: none;
+}
+.data-name{
+    text-decoration: none;
+    color: black;
+}
