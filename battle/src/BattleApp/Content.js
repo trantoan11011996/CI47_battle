@@ -87,7 +87,7 @@ export default function Content() {
                             })}
                         </ListGroup>
                         <NavDropdown action title="Timeline" className="-none d-sm-block d-md-none">
-                            <NavDropdown.Item className="item-sidebar" onClick={setNothing}>Tất cả thời kì</NavDropdown.Item>
+                            <NavDropdown.Item className="item-sidebar" onClick={setAllItem}>Tất cả</NavDropdown.Item>
                             <NavDropdown.Divider />
                             {agesList.map((item) => {
                                 return (
@@ -102,7 +102,7 @@ export default function Content() {
                                 <div>{activeAll && (
                                     <Row className="shadow-sm search-battle">
                                         <Col md={6} ms={12} className="ms-auto mr-3">
-                                            <Form className="d-flex" onChange={(event) => setResultFilter(event.target.value.toLowerCase())}>
+                                            <Form className="d-flex search-battle" onChange={(event) => setResultFilter(event.target.value.toLowerCase())}>
                                                 <FormControl
                                                     type="search"
                                                     placeholder="Search"

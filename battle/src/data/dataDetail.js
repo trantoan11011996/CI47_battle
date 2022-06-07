@@ -1,7 +1,7 @@
 const dataHistory = [
     {
         id: 1,
-        age: 'thời kì Bắc Thuộc',
+        age: 'Thời kì Bắc thuộc',
         desc: "",
         img: 'https://i.postimg.cc/CLTx5XdF/anh-bia.jpg',
         battles: [
@@ -99,7 +99,7 @@ const dataHistory = [
             },
             {
                 idBattles: 3,
-                name: "TRẬN BẠCH ĐẰNG 938",
+                name: "Trận Bạch Đằng 938",
                 start: "Năm 937",
                 end: "Năm 938",
                 img_age: "https://i.postimg.cc/RFY4dL3M/anh-nen-1288.jpg",
@@ -142,7 +142,7 @@ const dataHistory = [
     },
     {
         id: 2,
-        age: 'thời kì Quân chủ (độc lập)',
+        age: 'Thời kì Quân chủ (độc lập)',
         desc: "",
         img: 'https://i.postimg.cc/QxFGpvJW/8-cuoc-chien-thuong-vong-dam-mau-nhat-lich-su-loai-nguoi-16-26-52.jpg',
         battles: [
@@ -369,7 +369,7 @@ const dataHistory = [
     },
     {
         id: 3,
-        age: 'thời kì Bắc Thuộc lần 4',
+        age: 'Thời kì Bắc thuộc lần 4',
         desc: "",
         img: 'https://i.postimg.cc/DZP1ZCMC/images.jpg',
         battles:[
@@ -453,7 +453,7 @@ const dataHistory = [
     },
     {
         id: 4,
-        age: 'thời kì Quân chủ (trung hưng)',
+        age: 'Thời kì Quân chủ (Trung Hưng)',
         desc: "",
         img: 'https://i.postimg.cc/FFgQrjs7/images396610-T4-Anh-Minh-hoa-Le-trung-hung.jpg',
         battles:[
@@ -567,7 +567,7 @@ const dataHistory = [
     },
     {
         id: 5,
-        age: 'thời kì hiện đại (Pháp thuộc)',
+        age: 'Thời kì hiện đại (Pháp thuộc)',
         desc: "",
         img: 'https://i.postimg.cc/tCZtdzZg/Unknown.jpg',
         battles:[
@@ -634,7 +634,7 @@ const dataHistory = [
     },
     {
         id: 6,
-        age: 'thời kì hiện đại (Kháng chiến chống Mỹ)',
+        age: 'Thời kì hiện đại (Kháng chiến chống Mỹ)',
         desc: "",
         img: 'https://i.postimg.cc/BQ0HDG0m/tay-nguyen.jpg',
         battles:[

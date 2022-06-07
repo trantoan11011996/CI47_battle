@@ -37,6 +37,7 @@ export default function DetailBattle() {
     useEffect(() => {
         const detail = getBattle(battleId)
         setBattle(detail)
+        window.scrollTo(0, 0);
     }, [battleId])
     const detailDevelopment = getBattle(battleId)
     const detailNation = getBattle(battleId)
