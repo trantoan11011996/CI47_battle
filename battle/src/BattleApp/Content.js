@@ -34,7 +34,6 @@ export default function Content() {
             dataBattles.push(itembattle)
         })
     })
-    
     const setItem = (item) => {
         setCurrentAge(item)
         setActiveAll(false)
@@ -54,7 +53,6 @@ export default function Content() {
         setnoOfElement(noOfelement + noOfelement)
     }
     const slice = dataBattles.slice(0,noOfelement)
-    console.log(slice)
     const filteredData = slice.filter((el) => {
         if (resultFilter === '') {
             return el;

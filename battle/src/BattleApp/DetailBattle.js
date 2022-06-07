@@ -19,7 +19,6 @@ export default function DetailBattle() {
 
 
     const handleSubmitComment = (event) => {
-        console.log('alo')
         event.preventDefault()
         if (!auth.currentUser) {
             return
@@ -33,7 +32,6 @@ export default function DetailBattle() {
         setComments(newComment)
         setComment('')
     }
-    console.log(comments)
     useEffect(() => {
         const detail = getBattle(battleId)
         setBattle(detail)
