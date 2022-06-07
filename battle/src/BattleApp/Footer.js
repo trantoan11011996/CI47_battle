@@ -1,4 +1,4 @@
-import React from "react";
+import React, {useState} from "react";
 import { Card, Col, Row,Form,Button, Container } from "react-bootstrap";
 import footer from "../css/footer.css";
 import instagramlogo from "../img/icon/instagram.png"
@@ -6,8 +6,24 @@ import facebooklogo from "../img/icon/facebook.png"
 import githublogo from "../img/icon/github.png"
 
 export default function Footer() {
+
+    const [email, setEmail] = useState('');
+    const [feedback, setFeedBack] = useState('');
+
+    const feedbackData= [
+        {email: email, feedback: feedback},
+    ]
+
+    const handleSubmitForm = (event) => {
+        event.preventDefault();
+        console.log(email);
+        if(!localStorage.getItem('feedback')){
+            localStorage.setItem('feedback', JSON.stringify(feedbackData));
+        }
+
+    }
     return (
-        <Card fluid className="footer_container">
+        <Card fluid className="footer_container" onSubmit={handleSubmitForm}>
             <Row>
             <Col md={6}>
             </Col>
@@ -15,7 +31,7 @@ export default function Footer() {
             <Form className="form-footer">
                 <Form.Group className="mb-3" controlId="formBasicEmail">
                     <Form.Label>Your Email</Form.Label>
-                    <Form.Control type="email" placeholder="Enter email" />
+                    <Form.Control type="email" placeholder="Enter email" onChange={(event) => setEmail(event.target.value)} />
                     <Form.Text className="text-muted">
                         We'll never share your email with anyone else.
                     </Form.Text>
@@ -23,7 +39,7 @@ export default function Footer() {
 
                 <Form.Group className="mb-3" controlId="formBasicPassword">
                     <Form.Label>Your Feedback For Us</Form.Label>
-                    <Form.Control type="password" placeholder="Let me know what you think A'bout Us" />
+                    <Form.Control type="text" placeholder="Let me know what you think A'bout Us" onChange={(event) => setFeedBack(event.target.value)}  />
                 </Form.Group>
                 <Button variant="primary" type="submit">
                     Submit
