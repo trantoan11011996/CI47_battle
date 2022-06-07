@@ -16,7 +16,6 @@ export default function Footer() {
 
     const handleSubmitForm = (event) => {
         event.preventDefault();
-        console.log(email);
         if(!localStorage.getItem('feedback')){
             localStorage.setItem('feedback', JSON.stringify(feedbackData));
         }

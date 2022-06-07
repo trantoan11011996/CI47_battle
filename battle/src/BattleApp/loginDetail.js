@@ -26,7 +26,6 @@ export default function LoginDetail({setUser}) {
             if (!user) {
                 setEmailError('Email hoặc mật khẩu không chính xác');
             } else {
-                console.log('thành công')
                 setShow(false)
                 auth.setCurrentUser(user)
                 // setUser(user)
