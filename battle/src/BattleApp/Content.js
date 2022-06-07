@@ -34,7 +34,7 @@ export default function Content() {
             dataBattles.push(itembattle)
         })
     })
-    console.log(dataBattles)
+    
     const setItem = (item) => {
         setCurrentAge(item)
         setActiveAll(false)
