@@ -52,9 +52,9 @@ export default function Footer() {
 
                 <Col sm={12} md={2}>
                     <div className="description footer_item">
-                        <h4>Suviet</h4>
+                        <h4>History Battle</h4>
                         <hr />
-                        <p>SuViet là một trang ghi chú tổng hợp về các trận đánh nổi tiếng và quan trọng trong lịch sử Việt Nam</p>
+                        <p>History Battle là một trang ghi chú tổng hợp về các trận đánh nổi tiếng và quan trọng trong lịch sử Việt Nam</p>
                     </div>
                 </Col>
 
