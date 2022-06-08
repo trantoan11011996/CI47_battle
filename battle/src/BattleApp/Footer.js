@@ -52,7 +52,7 @@ export default function Footer() {
 
                 <Col sm={12} md={2}>
                     <div className="description footer_item">
-                        <h4>History Battle</h4>
+                        <h4>Sử Việt</h4>
                         <hr />
                         <p>Sử Việt là một trang ghi chú tổng hợp về các trận đánh nổi tiếng và quan trọng trong lịch sử Việt Nam</p>
                     </div>
