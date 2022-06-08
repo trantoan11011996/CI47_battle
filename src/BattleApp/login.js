@@ -26,7 +26,7 @@ export default function Login({setUser}) {
             if (!user) {
                 setEmailError('Email hoặc mật khẩu không chính xác');
             } else {
-                navigate("/")
+                navigate("/CI47_battle")
                 auth.setCurrentUser(user)
                 // setUser(user)
             }

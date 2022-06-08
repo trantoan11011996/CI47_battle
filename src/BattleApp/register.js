@@ -4,14 +4,13 @@ import '../css/register.css'
 import { v4 as uuidv4 } from 'uuid';
 import { AuthContext, generateInitUser, getUsers } from './user';
 import { useNavigate, Link, useParams } from "react-router-dom"
-import validator from 'validator'
 import RequiredPass from './requiredPass';
 import RequiredUser from './requiredUser';
 
 
 
 export default function Register() {
-
+   
     const [show, setShow] = useState(true)
     const [username, setUsername] = useState('')
     const [email, setEmail] = useState('')
@@ -20,6 +19,7 @@ export default function Register() {
     const [firstname, setFirstname] = useState('')
     const [lastname, setLastname] = useState('')
     const [errorMessage, setErrorMessage] = useState(false)
+    const [errorUser, setErrorUser] = useState(false)
     const [required, setRequired] = useState(false)
     const [requiredUser, setRequiredUser] = useState(false)
     const [checkPass, setCheckPass] = useState({
@@ -36,6 +36,7 @@ export default function Register() {
     const navigate = useNavigate()
 
     const [data, setData] = useState(getUsers())
+    console.log(data)
     const creatUser = (e, value) => {
         e.preventDefault()
         let newUser = {
@@ -48,6 +49,13 @@ export default function Register() {
             setErrorMessage(true)
             return
         }
+        // for(let user of data){
+        //     if(username==user.name){
+        //         setErrorUser(true)
+        //         return
+        //     }
+        //     return
+        // }
         setErrorMessage(false)
         setUsername('')
         setEmail('')
@@ -57,7 +65,7 @@ export default function Register() {
         const userData = ([...data, newUser])
         localStorage.setItem('users', JSON.stringify(userData))
         // auth.setUsers(userData)
-        navigate('/')
+        navigate('/CI47_battle')
 
     }
     const handleFocus = () => {
@@ -131,6 +139,7 @@ export default function Register() {
                         onChange={(event) => setUsername(event.target.value)}
                     >
                     </Form.Control>
+                    {errorUser && (<Form.Text className='text-danger'>Tên đăng ký đã tồn tại</Form.Text>)}
                      {requiredUser ? <RequiredUser
                         capsLetterFlag={checkUser.capsLetterCheck ? "valid" : "invalid"}
                         numberFlag={checkUser.numberCheck ? "valid" : "invalid"}
