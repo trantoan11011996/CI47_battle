@@ -25,7 +25,6 @@
 }
 .form-footer{
     padding-bottom: 30px;
-    border-bottom: 1px solid #ccc;
 }
 
 @media(max-width: 600px){
