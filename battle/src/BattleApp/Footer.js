@@ -40,7 +40,7 @@ export default function Footer() {
 
                                 <Form.Group className="mb-3" controlId="formBasicPassword">
                                     <Form.Label>Your Feedback For Us</Form.Label>
-                                    <Form.Control type="password" placeholder="Let me know what you think A'bout Us" onChange={(event) => setFeedBack(event.target.value)}/>
+                                    <Form.Control type="type" placeholder="Let me know what you think A'bout Us" onChange={(event) => setFeedBack(event.target.value)}/>
                                 </Form.Group>
                                 <Button variant="primary" type="submit">
                                     Submit
