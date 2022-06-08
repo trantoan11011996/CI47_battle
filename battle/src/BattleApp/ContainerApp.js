@@ -48,9 +48,9 @@ export default function ContainerApp() {
             <Container fluid>
                 <HomePage />
                 <Routes>
+                    <Route path="/CI47_battle" element = { <HomePage/>}></Route>
                     <Route path="/ages/:ageId/battles/:battleId" element={<DetailHistory/>}></Route>
                     <Route path="/battles/:battleId" element={<DetailBattle/>}></Route>
-                    <Route path="/" element = { <HomePage/>}></Route>
                     <Route path="/register" element = {<Register/>}></Route>
                     <Route path="/login" element = {<Login />}></Route>
                     <Route path="*" element={<h2 className="text-danger">không tìm thấy kết quả</h2>}></Route>
