@@ -4,7 +4,6 @@ import '../css/register.css'
 import { v4 as uuidv4 } from 'uuid';
 import { AuthContext, generateInitUser, getUsers } from './user';
 import { useNavigate, Link, useParams } from "react-router-dom"
-import validator from 'validator'
 import RequiredPass from './requiredPass';
 import RequiredUser from './requiredUser';
 

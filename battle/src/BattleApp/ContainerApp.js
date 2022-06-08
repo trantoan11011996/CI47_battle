@@ -46,6 +46,7 @@ export default function ContainerApp() {
         <BrowserRouter>
             <Header placeholder='Enter battle name...' data={dataBattles}/>
             <Container fluid>
+                <HomePage />
                 <Routes>
                     <Route path="/ages/:ageId/battles/:battleId" element={<DetailHistory/>}></Route>
                     <Route path="/battles/:battleId" element={<DetailBattle/>}></Route>

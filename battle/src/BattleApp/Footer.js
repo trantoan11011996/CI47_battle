@@ -54,7 +54,7 @@ export default function Footer() {
                     <div className="description footer_item">
                         <h4>History Battle</h4>
                         <hr />
-                        <p>History Battle là một trang ghi chú tổng hợp về các trận đánh nổi tiếng và quan trọng trong lịch sử Việt Nam</p>
+                        <p>Sử Việt là một trang ghi chú tổng hợp về các trận đánh nổi tiếng và quan trọng trong lịch sử Việt Nam</p>
                     </div>
                 </Col>
 
